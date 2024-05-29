@@ -1,0 +1,319 @@
+<!-- ساید لازم باشد کلاس beyt را از دیو ها حذف کنم -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #002855;
+        direction: rtl;
+        display: flex;
+        justify-content: center;
+      }
+
+      /* هرکدام از دو سمت اصلی صفحه */
+      .asli {
+        text-align: center;
+        margin: auto 20px;
+        padding: 2%;
+        border-radius: 5px;
+        width: 95%;
+        max-width: 500px;
+        min-width: 350px;
+        
+        height: 100%;
+        background-color: #5c677d;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* بخش اشکال */
+      .in-ashkal {
+        width: 95%;
+        border: 1px solid black;
+        margin: auto;
+      }
+
+      /* قسمت بالای بخش اشکال  */
+      #input {
+        height: 100px;
+        background-color: #b8c0ff;
+        border: 5px dashed #0353a4;
+      }
+
+      #input p {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 15px auto;
+      }
+
+      /* فیلد ورودی */
+      #vorodi {
+        text-align: center;
+        width: 80%;
+        max-width: 280px;
+        font-size: 25px;
+        border-style: none;
+        border-radius: 10px;
+        background-color: #cbd1ff;
+        border-bottom: 2px solid #0353a4;
+      }
+
+      /* قسمت پایین بخش اشکال (اشکال) */
+      #boyot {
+        background-color: #bbd0ff;
+        height: 85%;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        padding: 4px 0;
+      }
+
+      /* هر سطر */
+      .satr {
+        border: 2px dashed #0466c8;
+        border-radius: 5px;
+        margin: 2px auto;
+        width: 95%;
+        height: 19%;
+        display: flex;
+      }
+
+      #satr-1 {
+        margin: 2px auto;
+        width: 97%;
+        height: 19%;
+
+        display: flex;
+      }
+
+      .nim-satr {
+        height: 96%;
+        width: 48%;
+      }
+
+      /* هر بیت */
+      .beyt {
+        margin: auto;
+        width: 50px;
+        height: 120px;
+      }
+
+      /* ساخت نقطه و خط */
+      .adad {
+        width: 8px;
+        height: 8px;
+        background-color: black;
+        margin: 5px auto;
+        border-radius: 10px;
+      }
+
+      .s1 {
+        width: 25px;
+      }
+
+      .red {
+        background-color: red;
+      }
+
+      .green {
+        background-color: #00ff00;
+      }
+
+      /* نوشتن نام هر شکل زیرش */
+
+      .nam {
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="ashkal" class="asli">
+      <div id="input" class="in-ashkal">
+        <p>نقطه و خط را به صورت 0 و 1 وارد کنید</p>
+        <input type="text" name="" id="vorodi" maxlength="16" value="" />
+      </div>
+
+      <div id="boyot" class="in-ashkal">
+        <div class="" id="satr-1">
+          <div class="satr nim-satr" id="satr-1.1">
+            <div class="beyt" id="beyt-1"></div>
+            <div class="beyt" id="beyt-2"></div>
+            <div class="beyt" id="beyt-3"></div>
+            <div class="beyt" id="beyt-4"></div>
+          </div>
+          <div class="satr nim-satr" id="satr-1.2">
+            <div class="beyt" id="beyt-5"></div>
+            <div class="beyt" id="beyt-6"></div>
+            <div class="beyt" id="beyt-7"></div>
+            <div class="beyt" id="beyt-8"></div>
+          </div>
+        </div>
+        <div class="satr" id="satr-2">
+          <div class="beyt" id="beyt-9"></div>
+          <div class="beyt" id="beyt-10"></div>
+          <div class="beyt" id="beyt-11"></div>
+          <div class="beyt" id="beyt-12"></div>
+        </div>
+        <div class="satr" id="satr-3">
+          <div class="beyt" id="beyt-13"></div>
+          <div class="beyt" id="beyt-14"></div>
+        </div>
+        <div class="satr" id="satr-4">
+          <div class="beyt" id="beyt-15"></div>
+        </div>
+        <div class="satr" id="satr-5">
+          <div class="beyt" id="beyt-16"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div id="tozihat" class="asli"></div> -->
+
+    <!-- <script src="script.js"></script> -->
+
+    <script>
+      // توضیحات
+
+      let jadval_ashkal = [
+        { id: 1, shekl: "0111", nam: "لحیان", tozih: "" },
+        { id: 2, shekl: "1010", nam: "قبض داخل", tozih: "" },
+        { id: 3, shekl: "0101", nam: "قبض خارج", tozih: "" },
+        { id: 4, shekl: "1111", nam: "جماعت", tozih: "" },
+        { id: 5, shekl: "0010", nam: "فراخ", tozih: "" },
+        { id: 6, shekl: "0110", nam: "عقله", tozih: "" },
+        { id: 7, shekl: "1110", nam: "انکیس", tozih: "" },
+        { id: 8, shekl: "1011", nam: "حمره", tozih: "" },
+        { id: 9, shekl: "1101", nam: "بیاض", tozih: "" },
+        { id: 10, shekl: "0011", nam: "نصرت خارج", tozih: "" },
+        { id: 11, shekl: "1100", nam: "نصرت داخل", tozih: "" },
+        { id: 12, shekl: "0001", nam: "عتبه خارج", tozih: "" },
+        { id: 13, shekl: "0100", nam: "نقی الخد", tozih: "" },
+        { id: 14, shekl: "1000", nam: "عتبه داخل", tozih: "" },
+        { id: 15, shekl: "1001", nam: "اجتماع", tozih: "" },
+        { id: 16, shekl: "0000", nam: "طریق", tozih: "" },
+      ];
+
+      let $ = document;
+
+      let tozihat = $.getElementById("tozihat");
+
+      let input_fild = $.getElementById("vorodi");
+
+      input_fild.addEventListener("keyup", function () {
+        var text = input_fild.value;
+
+        if (text.length == 16) {
+          input_fild.style.backgroundColor = "rgb(158 243 158)";
+
+          // ریختن نتیجه ی حساب اعداد در لیست
+          let abvab = hesab(text);
+          // فرستادن لیست برای ساخت اشکال
+          data_print(abvab);
+          // // انجام روش سیر نقطه
+          // seyr_noghte(abvab)
+        } else {
+          input_fild.style.backgroundColor = "";
+        }
+        for (i in text) {
+          if (!(text[i] == "0" || text[i] == "1")) {
+            input_fild.value = text.slice(0, i);
+          }
+        }
+      });
+
+      //  ضرب برای ساخت خانه های 9 تا 16
+      function zarb(by1, by2) {
+        by3 = "";
+        for (let i = 0; i != 4; i++) {
+          by3 += String(Math.abs(((+by1[i] + +by2[i]) * 2 - 2) / 2));
+        }
+        return by3;
+      }
+
+      function hesab(text) {
+        // ساخت امهات یعنی 1 تا 4
+        var lst = [
+          text.slice(0, 4),
+          text.slice(4, 8),
+          text.slice(8, 12),
+          text.slice(12, 16),
+        ];
+
+        // ساخت بنات یعنی 5 تا 8
+        for (i in lst) {
+          lst.push(lst[0][i] + lst[1][i] + lst[2][i] + lst[3][i]);
+        }
+
+        // ساخت متولدات یعنی 9 تا 12
+        for (let i = 0; i != 8; i += 2) {
+          // lst.push(lst[0][i] + lst[1][i] + lst[2][i] + lst[3][i])
+          lst.push(zarb(lst[i], lst[i + 1]));
+        }
+
+        // ساخت خانه های 13 تا 15
+        for (let i = 8; i != 14; i += 2) {
+          // lst.push(lst[0][i] + lst[1][i] + lst[2][i] + lst[3][i])
+          lst.push(zarb(lst[i], lst[i + 1]));
+        }
+
+        // ساخت خانه 16
+        lst.push(zarb(lst[14], lst[0]));
+
+        console.log(lst);
+
+        return lst;
+      }
+
+      // رسم زایچه با استفاده از لیست اشکال حساب شده یعنی lst
+      function data_print(abvab) {
+        for (let i = 1; i != 17; i++) {
+          // تعریف متغیر برای هر یک از المنت های بیت
+          this["beyt_" + i] = $.getElementById("beyt-" + i);
+
+          // حذف کلاس ها از بیت ها و افزودن دوباره ی کلاس ها
+          this["beyt_" + i].removeAttribute("class");
+          this["beyt_" + i].classList.add("beyt");
+
+          // نوشتن شماره ی هر خانه بالای ان
+          this["beyt_" + i].innerText = i;
+
+          // گرفتن شکل از لیست
+          var bab = abvab[i - 1];
+
+          // ساخت نقطه و خط بر اساس شکل انتخاب شده
+          for (s in bab) {
+            this["beyt_" + i].insertAdjacentHTML(
+              "beforeend",
+              '<div class="adad s' + bab[s] + '"></div>'
+            );
+          }
+
+          // پیدا کردن این شکل از جدول اشکال برای یافتن نام ان
+          var natije = jadval_ashkal.find(function (item) {
+            return item["shekl"] == bab;
+          });
+
+          // نوشتن نام شکل پیدا شده زیر ان
+          this["beyt_" + i].insertAdjacentHTML(
+            "beforeend",
+            '<div class="nam"><p>' + natije.nam + "</p></div>"
+          );
+
+          // eval("beyt_" + i + ".innerText = abvab[" + (i - 1) + "];");
+        }
+
+        console.log();
+      }
+    </script>
+  </body>
+</html>
+
+<p></p>
