@@ -686,53 +686,72 @@
       $.getElementById("vorodi");
 
 
-    input_fild.addEventListener(
-      "keyup",
-      function () {
+input_fild.addEventListener(
+  "input",
+  function () {
 
-        var text = input_fild.value;
+    // فقط صفر و یک مجاز است
+    input_fild.value = input_fild.value
+      .replace(/[^01]/g, "")
+      .slice(0, 16);
 
+    var text = input_fild.value;
 
-if (text.length == 16) {
+    if (text.length == 16) {
 
-  input_fild.style.backgroundColor =
-    "rgb(158 243 158)";
+      input_fild.style.backgroundColor =
+        "rgb(158 243 158)";
 
-  let abvab = hesab(text);
+      let abvab = hesab(text);
 
-  data_print(abvab);
+      data_print(abvab);
 
-  // اسکرول خودکار به پایین
-  setTimeout(function () {
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: "smooth"
-    });
-  }, 100);
+      // اسکرول آرام به پایین
+      setTimeout(function () {
 
-} else {
-          input_fild.style.backgroundColor = "";
+        const start = window.scrollY;
+        const target =
+          document.documentElement.scrollHeight -
+          window.innerHeight;
 
-        }
+        const duration = 2500;
 
+        const startTime = performance.now();
 
-        for (i in text) {
+        function scrollAnimation(currentTime) {
 
-          if (
-            !(text[i] == "0" ||
-              text[i] == "1")
-          ) {
+          const elapsed = currentTime - startTime;
+          const progress =
+            Math.min(elapsed / duration, 1);
 
-            input_fild.value =
-              text.slice(0, i);
+          const ease =
+            progress < 0.5
+              ? 2 * progress * progress
+              : 1 -
+                Math.pow(-2 * progress + 2, 2) / 2;
 
+          window.scrollTo(
+            0,
+            start + (target - start) * ease
+          );
+
+          if (progress < 1) {
+            requestAnimationFrame(scrollAnimation);
           }
-
         }
 
-      }
-    );
+        requestAnimationFrame(scrollAnimation);
 
+      }, 100);
+
+    } else {
+
+      input_fild.style.backgroundColor = "";
+
+    }
+
+  }
+);
 
     /* =====================================================
        ضرب برای ساخت خانه های 9 تا 16
