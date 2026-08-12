@@ -693,19 +693,24 @@
         var text = input_fild.value;
 
 
-        if (text.length == 16) {
+if (text.length == 16) {
 
-          input_fild.style.backgroundColor =
-            "rgb(158 243 158)";
+  input_fild.style.backgroundColor =
+    "rgb(158 243 158)";
 
+  let abvab = hesab(text);
 
-          let abvab = hesab(text);
+  data_print(abvab);
 
-          data_print(abvab);
+  // اسکرول خودکار به پایین
+  setTimeout(function () {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth"
+    });
+  }, 100);
 
-
-        } else {
-
+} else {
           input_fild.style.backgroundColor = "";
 
         }
