@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>محاسبه زایجه رمل</title>
 
     <style>
@@ -20,7 +21,7 @@
         justify-content: center;
       }
 
-      /* هرکدام از دو سمت اصلی صفحه */
+      /* بخش اصلی */
       .asli {
         text-align: center;
         margin: auto 20px;
@@ -33,6 +34,7 @@
 
         height: 100%;
         background-color: #6e8cc7;
+
         display: flex;
         flex-direction: column;
       }
@@ -43,19 +45,21 @@
         margin: auto;
       }
 
-      /* قسمت بالای بخش اشکال */
+      /* قسمت بالای صفحه */
       #input {
-        height: 180px;
+        min-height: 150px;
         background-color: #b8c0ff;
         border: 3px dashed #0353a4;
         border-radius: 10px;
+        padding: 5px 0;
+        box-sizing: border-box;
       }
 
       #input p {
         font-family: "vazir";
         font-size: 17px;
         font-weight: bold;
-        margin: 15px auto;
+        margin: 12px auto;
       }
 
       /* فیلد ورودی */
@@ -68,6 +72,7 @@
         border-radius: 10px;
         background-color: #cbd1ff;
         border-bottom: 2px solid #0353a4;
+        outline: none;
       }
 
       a {
@@ -75,28 +80,34 @@
         text-decoration: none;
       }
 
-      /* باکس کتابخانه */
+      /* لینک کتابخانه */
       .library-link {
-        width: 88%;
-        margin: 8px auto 10px;
-        padding: 9px 10px;
-        background: linear-gradient(135deg, #dfe7ff, #cbd8ff);
-        border: 2px solid #6f8fd4;
-        border-radius: 12px;
+        width: 90%;
+        margin: 5px auto 7px;
+        padding: 6px 8px;
+
+        background-color: #dbe4ff;
+        border: 1px solid #6f8fd4;
+        border-radius: 8px;
+
         box-sizing: border-box;
+
         font-family: vazir;
-        font-size: 13px;
+        font-size: 11px;
         font-weight: bold;
+
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 6px;
+
+        gap: 5px;
         flex-wrap: wrap;
-        box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
+
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
       }
 
       .library-icon {
-        font-size: 18px;
+        font-size: 15px;
       }
 
       .library-text {
@@ -105,18 +116,21 @@
 
       .library-link a {
         color: #075eaa;
-        background: #ffffff;
-        padding: 4px 10px;
-        border-radius: 7px;
+        background-color: #ffffff;
+
+        padding: 2px 8px;
+
+        border-radius: 5px;
         border: 1px solid #8ba4dc;
+
         font-weight: bold;
-        transition: all 0.2s ease;
+
+        transition: 0.2s;
       }
 
       .library-link a:hover {
-        background: #aec3ff;
+        background-color: #aec3ff;
         color: #003c78;
-        transform: scale(1.04);
       }
 
       /* قسمت پایین بخش اشکال */
@@ -125,9 +139,12 @@
         background-color: #bbd0ff;
         height: 85%;
         border: 3px dashed #0353a4;
+
         border-radius: 10px;
+
         display: flex;
         flex-direction: column;
+
         padding: 4px 0;
       }
 
@@ -136,15 +153,19 @@
         border: 2px dashed #0466c8;
         border-radius: 5px;
         margin: 2px auto;
+
         width: 95%;
         height: 19%;
+
         display: flex;
       }
 
       #satr-1 {
         margin: 2px auto;
+
         width: 97%;
         height: 19%;
+
         display: flex;
       }
 
@@ -156,8 +177,10 @@
       /* هر بیت */
       .beyt {
         margin: 6px auto;
+
         width: 50px;
         height: 120px;
+
         border-radius: 10px;
       }
 
@@ -168,11 +191,15 @@
       /* شماره خانه ها */
       .shomare_khane {
         margin: 0;
+
         background-color: #78a1d1;
         color: #3f3f9a;
+
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
+
         margin-bottom: 10px;
+
         font-family: vazir;
         font-size: 14px;
         font-weight: bold;
@@ -182,8 +209,11 @@
       .adad {
         width: 8px;
         height: 8px;
+
         background-color: black;
+
         margin: 5px auto;
+
         border-radius: 10px;
       }
 
@@ -199,7 +229,7 @@
         background-color: #00ff00;
       }
 
-      /* نوشتن نام هر شکل زیرش */
+      /* نوشتن نام هر شکل */
       .nam {
         margin-top: 5px;
       }
@@ -208,17 +238,21 @@
         font-family: vazir;
         font-size: 12px;
         font-weight: bolder;
+
         margin-top: 4px;
       }
     </style>
   </head>
 
   <body>
+
     <div id="ashkal" class="asli">
 
       <div id="input" class="in-ashkal">
 
-        <p>به جای نقطه 0 و به جای خط 1 را وارد کنید</p>
+        <p>
+          به جای نقطه 0 و به جای خط 1 را وارد کنید
+        </p>
 
         <input
           type="text"
@@ -234,20 +268,25 @@
           <a
             href="https://eitaa.com/mohsen0660"
             target="_blank"
-          >ایتا</a>
+          >
+            ایتا
+          </a>
 
           <span>/</span>
 
           <a
             href="https://t.me/mohsen0660"
             target="_blank"
-          >تلگرام</a>
+          >
+            تلگرام
+          </a>
 
           <span>)</span>
         </p>
 
-        <!-- لینک کتابخانه -->
+        <!-- کتابخانه تخصصی علم رمل -->
         <div class="library-link">
+
           <span class="library-icon">📚</span>
 
           <span class="library-text">
@@ -258,24 +297,32 @@
             href="https://t.me/+on5KK8q4OLY5ZjQ0"
             target="_blank"
           >
-            مشاهده کانال
+            مشاهده
           </a>
+
         </div>
 
       </div>
+
 
       <div id="boyot" class="in-ashkal">
 
         <div class="" id="satr-1">
 
-          <div class="satr nim-satr" id="satr-1.1">
+          <div
+            class="satr nim-satr"
+            id="satr-1.1"
+          >
             <div class="beyt" id="beyt-1"></div>
             <div class="beyt" id="beyt-2"></div>
             <div class="beyt" id="beyt-3"></div>
             <div class="beyt" id="beyt-4"></div>
           </div>
 
-          <div class="satr nim-satr" id="satr-1.2">
+          <div
+            class="satr nim-satr"
+            id="satr-1.2"
+          >
             <div class="beyt" id="beyt-5"></div>
             <div class="beyt" id="beyt-6"></div>
             <div class="beyt" id="beyt-7"></div>
@@ -284,30 +331,45 @@
 
         </div>
 
+
         <div class="satr" id="satr-2">
+
           <div class="beyt" id="beyt-9"></div>
           <div class="beyt" id="beyt-10"></div>
           <div class="beyt" id="beyt-11"></div>
           <div class="beyt" id="beyt-12"></div>
+
         </div>
+
 
         <div class="satr" id="satr-3">
+
           <div class="beyt" id="beyt-13"></div>
           <div class="beyt" id="beyt-14"></div>
+
         </div>
+
 
         <div class="satr" id="satr-4">
+
           <div class="beyt" id="beyt-15"></div>
+
         </div>
 
+
         <div class="satr" id="satr-5">
+
           <div class="beyt" id="beyt-16"></div>
+
         </div>
 
       </div>
+
     </div>
 
+
     <script>
+
       // جدول اشکال
 
       let jadval_ashkal = [
@@ -329,144 +391,287 @@
         { id: 16, shekl: "0000", nam: "طریق", tozih: "" },
       ];
 
+
       let $ = document;
 
-      let input_fild = $.getElementById("vorodi");
+      let input_fild =
+        $.getElementById("vorodi");
 
-      input_fild.addEventListener("keyup", function () {
-        var text = input_fild.value;
 
-        if (text.length == 16) {
-          input_fild.style.backgroundColor = "rgb(158 243 158)";
+      input_fild.addEventListener(
+        "keyup",
+        function () {
 
-          // ریختن نتیجه حساب اعداد در لیست
-          let abvab = hesab(text);
+          var text = input_fild.value;
 
-          // فرستادن لیست برای ساخت اشکال
-          data_print(abvab);
 
-          // انجام روش سیر نقطه
-          // seyr_noghte(abvab)
-        } else {
-          input_fild.style.backgroundColor = "";
-        }
+          if (text.length == 16) {
 
-        for (let i in text) {
-          if (!(text[i] == "0" || text[i] == "1")) {
-            input_fild.value = text.slice(0, i);
+            input_fild.style.backgroundColor =
+              "rgb(158 243 158)";
+
+
+            // ریختن نتیجه حساب اعداد در لیست
+
+            let abvab = hesab(text);
+
+
+            // فرستادن لیست برای ساخت اشکال
+
+            data_print(abvab);
+
+
+            // انجام روش سیر نقطه
+
+            // seyr_noghte(abvab)
+
+          } else {
+
+            input_fild.style.backgroundColor = "";
+
           }
+
+
+          for (i in text) {
+
+            if (
+              !(text[i] == "0" ||
+                text[i] == "1")
+            ) {
+
+              input_fild.value =
+                text.slice(0, i);
+
+            }
+
+          }
+
         }
-      });
+      );
+
 
       // ضرب برای ساخت خانه های 9 تا 16
-      function zarb(by1, by2) {
-        let by3 = "";
 
-        for (let i = 0; i != 4; i++) {
+      function zarb(by1, by2) {
+
+        by3 = "";
+
+        for (
+          let i = 0;
+          i != 4;
+          i++
+        ) {
+
           by3 += String(
-            Math.abs(((+by1[i] + +by2[i]) * 2 - 2) / 2)
+            Math.abs(
+              (
+                (+by1[i] +
+                  +by2[i]) *
+                  2 -
+                  2
+              ) / 2
+            )
           );
+
         }
 
         return by3;
       }
 
+
       // فانکشن حساب
+
       function hesab(text) {
 
         // ساخت امهات یعنی 1 تا 4
+
         var lst = [
+
           text.slice(0, 4),
+
           text.slice(4, 8),
+
           text.slice(8, 12),
+
           text.slice(12, 16),
+
         ];
 
+
         // ساخت بنات یعنی 5 تا 8
-        for (let i in lst) {
+
+        for (i in lst) {
+
           lst.push(
             lst[0][i] +
             lst[1][i] +
             lst[2][i] +
             lst[3][i]
           );
+
         }
+
 
         // ساخت متولدات یعنی 9 تا 12
-        for (let i = 0; i != 8; i += 2) {
-          lst.push(zarb(lst[i], lst[i + 1]));
+
+        for (
+          let i = 0;
+          i != 8;
+          i += 2
+        ) {
+
+          lst.push(
+            zarb(
+              lst[i],
+              lst[i + 1]
+            )
+          );
+
         }
+
 
         // ساخت خانه های 13 تا 15
-        for (let i = 8; i != 14; i += 2) {
-          lst.push(zarb(lst[i], lst[i + 1]));
+
+        for (
+          let i = 8;
+          i != 14;
+          i += 2
+        ) {
+
+          lst.push(
+            zarb(
+              lst[i],
+              lst[i + 1]
+            )
+          );
+
         }
 
+
         // ساخت خانه 16
-        lst.push(zarb(lst[14], lst[0]));
+
+        lst.push(
+          zarb(
+            lst[14],
+            lst[0]
+          )
+        );
+
 
         console.log(lst);
 
+
         return lst;
+
       }
+
 
       // رسم زایچه با استفاده از لیست اشکال حساب شده
+
       function data_print(abvab) {
 
-        for (let i = 1; i != 17; i++) {
+        for (
+          let i = 1;
+          i != 17;
+          i++
+        ) {
 
           // تعریف متغیر برای هر یک از المنت های بیت
+
           this["beyt_" + i] =
-            $.getElementById("beyt-" + i);
+            $.getElementById(
+              "beyt-" + i
+            );
+
 
           // حذف کلاس ها از بیت ها و افزودن دوباره کلاس ها
-          this["beyt_" + i].removeAttribute("class");
 
-          this["beyt_" + i].classList.add(
-            "beyt",
-            "show_border"
-          );
+          this["beyt_" + i]
+            .removeAttribute("class");
+
+
+          this["beyt_" + i]
+            .classList.add(
+              "beyt",
+              "show_border"
+            );
+
 
           // خالی کردن هر خانه
-          this["beyt_" + i].innerText = "";
+
+          this["beyt_" + i].innerText =
+            "";
+
 
           // نوشتن شماره خانه بالای آن
-          this["beyt_" + i].insertAdjacentHTML(
-            "afterbegin",
-            '<div class="shomare_khane">' +
-              i +
-            "</div>"
-          );
+
+          this["beyt_" + i]
+            .insertAdjacentHTML(
+              "afterbegin",
+
+              '<div class="shomare_khane">' +
+                i +
+                "</div>"
+            );
+
 
           // گرفتن شکل از لیست
-          var bab = abvab[i - 1];
+
+          var bab =
+            abvab[i - 1];
+
 
           // ساخت نقطه و خط بر اساس شکل انتخاب شده
-          for (let s in bab) {
-            this["beyt_" + i].insertAdjacentHTML(
-              "beforeend",
-              '<div class="adad s' +
-                bab[s] +
-              '"></div>'
-            );
+
+          for (s in bab) {
+
+            this["beyt_" + i]
+              .insertAdjacentHTML(
+                "beforeend",
+
+                '<div class="adad s' +
+                  bab[s] +
+                  '"></div>'
+              );
+
           }
 
+
           // پیدا کردن این شکل از جدول اشکال برای یافتن نام آن
-          var natije = jadval_ashkal.find(function (item) {
-            return item["shekl"] == bab;
-          });
+
+          var natije =
+            jadval_ashkal.find(
+              function (item) {
+
+                return (
+                  item["shekl"] == bab
+                );
+
+              }
+            );
+
 
           // نوشتن نام شکل پیدا شده زیر آن
-          this["beyt_" + i].insertAdjacentHTML(
-            "beforeend",
-            '<div class="nam"><p>' +
-              natije.nam +
-            "</p></div>"
-          );
+
+          this["beyt_" + i]
+            .insertAdjacentHTML(
+
+              "beforeend",
+
+              '<div class="nam"><p>' +
+                natije.nam +
+                "</p></div>"
+
+            );
+
         }
 
+
         console.log();
+
       }
+
     </script>
+
   </body>
 </html>
