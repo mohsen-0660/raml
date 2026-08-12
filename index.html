@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
-
+<html lang="fa">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
   <title>محاسبه زایجه رمل</title>
 
   <style>
-
     @font-face {
       font-family: vazir;
       src: url(fonts/Vazir.woff);
@@ -18,1318 +16,628 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
-      padding: 0;
+      padding: 12px 0;
       min-height: 100vh;
-
-      font-family: vazir, Tahoma, sans-serif;
-
-      background:
-        radial-gradient(circle at top right, #214c80 0%, transparent 35%),
-        radial-gradient(circle at bottom left, #15355e 0%, transparent 35%),
-        linear-gradient(135deg, #071a2f, #0d2e52);
-
-      color: #172b4d;
+      background: linear-gradient(135deg, #001f3f, #003b73);
+      direction: rtl;
+      display: flex;
+      justify-content: center;
+      font-family: vazir, sans-serif;
     }
 
-    /* =========================================
-       صفحه اصلی
-    ========================================= */
+    /* قاب اصلی */
+    .asli {
+      width: 95%;
+      max-width: 520px;
+      min-width: 350px;
+      padding: 10px;
 
-    .page {
-      width: 100%;
-      max-width: 900px;
+      background: linear-gradient(
+        145deg,
+        #7895d0,
+        #6685c5
+      );
 
-      margin: 0 auto;
-
-      padding: 25px 15px 40px;
-    }
-
-    /* =========================================
-       هدر
-    ========================================= */
-
-    .header {
-      position: relative;
-      overflow: hidden;
-
-      margin-bottom: 18px;
-      padding: 24px 20px;
-
-      border-radius: 24px;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(42, 94, 151, 0.95),
-          rgba(24, 54, 94, 0.98)
-        );
-
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
 
       box-shadow:
-        0 15px 35px rgba(0, 0, 0, 0.25);
-    }
-
-    .header::before {
-      content: "";
-
-      position: absolute;
-
-      width: 180px;
-      height: 180px;
-
-      top: -90px;
-      left: -60px;
-
-      border-radius: 50%;
-
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .header::after {
-      content: "";
-
-      position: absolute;
-
-      width: 120px;
-      height: 120px;
-
-      bottom: -70px;
-      right: -40px;
-
-      border-radius: 50%;
-
-      background: rgba(104, 180, 255, 0.10);
-    }
-
-    .header-content {
-      position: relative;
-      z-index: 2;
+        0 10px 30px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
 
       text-align: center;
     }
 
-    .header-icon {
-      display: inline-flex;
+    /* =========================
+       بخش ورودی
+    ========================= */
 
-      width: 65px;
-      height: 65px;
-
-      align-items: center;
-      justify-content: center;
-
-      margin-bottom: 10px;
-
-      border-radius: 20px;
-
-      background: rgba(255, 255, 255, 0.12);
-
-      border: 1px solid rgba(255, 255, 255, 0.18);
-
-      font-size: 32px;
-
-      box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .header h1 {
-      margin: 0;
-
-      color: #ffffff;
-
-      font-size: 27px;
-
-      font-weight: bold;
-    }
-
-    .header p {
-      margin: 8px 0 0;
-
-      color: #dcecff;
-
-      font-size: 13px;
-    }
-
-    /* =========================================
-       کارت
-    ========================================= */
-
-    .card {
-      background: rgba(239, 245, 255, 0.96);
-
-      border: 1px solid rgba(255, 255, 255, 0.35);
-
-      border-radius: 22px;
-
-      padding: 18px;
-
-      margin-bottom: 18px;
-
-      box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.18);
-    }
-
-    /* =========================================
-       عنوان بخش
-    ========================================= */
-
-    .section-title {
-      display: flex;
-
-      align-items: center;
-
-      gap: 10px;
-
-      margin-bottom: 14px;
-    }
-
-    .section-icon {
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      width: 40px;
-      height: 40px;
-
-      border-radius: 12px;
-
-      background: #dceaff;
-
-      color: #155ca3;
-
-      font-size: 19px;
-    }
-
-    .section-title h2 {
-      margin: 0;
-
-      font-size: 17px;
-
-      color: #183b66;
-    }
-
-    .section-title span {
-      display: block;
-
-      margin-top: 2px;
-
-      color: #71839c;
-
-      font-size: 11px;
-    }
-
-    /* =========================================
-       توضیحات
-    ========================================= */
-
-    .instruction {
-      padding: 12px 14px;
-
-      margin-bottom: 14px;
-
-      border-radius: 12px;
-
-      background: #e7f0ff;
-
-      border: 1px solid #ceddf4;
-
-      color: #365477;
-
-      font-size: 12px;
-
-      line-height: 1.9;
-    }
-
-    /* =========================================
-       ورودی
-    ========================================= */
-
-    .input-wrapper {
-      position: relative;
-
-      margin-bottom: 13px;
-    }
-
-    #vorodi {
-      display: block;
-
+    #input {
       width: 100%;
-      height: 58px;
 
-      padding: 5px 16px;
+      background: linear-gradient(
+        145deg,
+        #c8ceff,
+        #b5bdf0
+      );
 
-      text-align: center;
-      direction: ltr;
-
-      font-family: Arial, sans-serif;
-
-      font-size: 25px;
-      font-weight: bold;
-
-      letter-spacing: 5px;
-
-      color: #163860;
-
-      background: #ffffff;
-
-      border: 2px solid #cad8ec;
-
+      border: 2px solid #5578b9;
       border-radius: 15px;
 
-      outline: none;
-
-      transition: all 0.25s ease;
+      padding: 14px 10px 12px;
 
       box-shadow:
-        inset 0 2px 6px rgba(0, 0, 0, 0.04);
-    }
+        0 5px 12px rgba(0, 0, 0, 0.12),
+        inset 0 1px 2px rgba(255, 255, 255, 0.4);
 
-    #vorodi:focus {
-      border-color: #3181ca;
-
-      box-shadow:
-        0 0 0 4px rgba(49, 129, 202, 0.12);
-    }
-
-    #vorodi.valid {
-      background: #ecfff3;
-
-      border-color: #51b778;
-    }
-
-    #vorodi::placeholder {
-      color: #9baabd;
-
-      font-size: 18px;
-
-      letter-spacing: 2px;
-    }
-
-    /* =========================================
-       وضعیت
-    ========================================= */
-
-    .input-status {
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      margin-top: 7px;
-
-      font-size: 10px;
-
-      color: #7d8ea5;
-    }
-
-    #counter {
-      direction: ltr;
-
-      font-family: Arial, sans-serif;
-    }
-
-    /* =========================================
-       دکمه ها
-    ========================================= */
-
-    .buttons {
-      display: flex;
-
-      gap: 9px;
-    }
-
-    .btn {
-      flex: 1;
-
-      height: 48px;
-
-      border: none;
-
-      border-radius: 13px;
-
-      font-family: vazir;
-
-      font-size: 13px;
-
-      font-weight: bold;
-
-      cursor: pointer;
-
-      transition: all 0.2s ease;
-    }
-
-    .btn:active {
-      transform: scale(0.98);
-    }
-
-    .btn-primary {
-      color: white;
-
-      background:
-        linear-gradient(
-          135deg,
-          #1976c8,
-          #11579b
-        );
-
-      box-shadow:
-        0 7px 15px rgba(17, 87, 155, 0.25);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-
-      box-shadow:
-        0 10px 20px rgba(17, 87, 155, 0.30);
-    }
-
-    .btn-secondary {
-      color: #365477;
-
-      background: #e6edf8;
-
-      border: 1px solid #ced9e9;
-    }
-
-    .btn-secondary:hover {
-      background: #dbe5f3;
-    }
-
-    /* =========================================
-       کتابخانه
-    ========================================= */
-
-    .library-card {
       position: relative;
-
-      overflow: hidden;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      gap: 12px;
-
-      padding: 15px 16px;
-
-      border-radius: 16px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #e8f3ff,
-          #d8e9ff
-        );
-
-      border: 1px solid #bfd7f1;
+      overflow: visible;
     }
 
-    .library-card::before {
+    #input::before {
       content: "";
-
       position: absolute;
 
       top: 0;
       right: 0;
+      left: 0;
 
-      width: 5px;
-      height: 100%;
+      height: 4px;
 
-      background: #2184d0;
+      border-radius: 15px 15px 0 0;
+
+      background: linear-gradient(
+        90deg,
+        #0353a4,
+        #3f7ed9,
+        #0353a4
+      );
     }
 
-    .library-info {
-      display: flex;
-
-      align-items: center;
-
-      gap: 11px;
-    }
-
-    .library-icon {
-      width: 44px;
-      height: 44px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      flex-shrink: 0;
-
-      border-radius: 12px;
-
-      background: #ffffff;
-
-      font-size: 22px;
-
-      box-shadow:
-        0 4px 9px rgba(34, 92, 145, 0.10);
-    }
-
-    .library-name {
-      margin: 0 0 3px;
-
-      color: #20486f;
-
-      font-size: 13px;
-
-      font-weight: bold;
-    }
-
-    .library-description {
-      margin: 0;
-
-      color: #71849b;
-
-      font-size: 10px;
-    }
-
-    .library-btn {
-      display: inline-flex;
-
-      align-items: center;
-      justify-content: center;
-
-      flex-shrink: 0;
-
-      min-width: 82px;
-
-      height: 36px;
-
-      padding: 0 12px;
-
-      border-radius: 10px;
-
-      background: #1984d1;
-
-      color: white;
-
-      font-size: 11px;
-
-      font-weight: bold;
-
-      text-decoration: none;
-
-      box-shadow:
-        0 5px 10px rgba(25, 132, 209, 0.20);
-
-      transition: 0.2s;
-    }
-
-    .library-btn:hover {
-      transform: translateY(-2px);
-
-      background: #126daf;
-    }
-
-    /* =========================================
-       کارت زایچه
-    ========================================= */
-
-    .chart-card {
-      background: rgba(235, 243, 255, 0.97);
-
-      border: 1px solid #d0deef;
-
-      border-radius: 22px;
-
-      padding: 16px;
-
-      box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.14);
-    }
-
-    .chart-header {
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      margin-bottom: 13px;
-    }
-
-    .chart-title {
-      display: flex;
-
-      align-items: center;
-
-      gap: 9px;
-    }
-
-    .chart-title-icon {
-      width: 38px;
-      height: 38px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 11px;
-
-      background: #dcecff;
-
-      font-size: 18px;
-    }
-
-    .chart-title-text strong {
-      display: block;
-
-      color: #1e456c;
-
+    #input p {
+      font-family: vazir;
       font-size: 15px;
+      font-weight: bold;
+      color: #26386e;
+      margin: 7px auto;
     }
 
-    .chart-title-text span {
+    .hint {
+      font-size: 15px !important;
+      margin-bottom: 10px !important;
+    }
+
+    /* فیلد ورودی */
+    #vorodi {
       display: block;
-
-      margin-top: 2px;
-
-      color: #8091a8;
-
-      font-size: 9px;
-    }
-
-    .chart-badge {
-      padding: 5px 9px;
-
-      border-radius: 20px;
-
-      background: #e4edf9;
-
-      color: #5f7693;
-
-      font-size: 9px;
-    }
-
-    /* =========================================
-       زایچه
-    ========================================= */
-
-    #boyot {
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 7px;
-
-      width: 100%;
-    }
-
-    .chart-row {
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      gap: 5px;
-
-      min-height: 145px;
-
-      padding: 7px;
-
-      border-radius: 15px;
-
-      background: #f6f9fd;
-
-      border: 1px solid #e1e9f4;
-    }
-
-    #satr-1 {
-      display: flex;
-
-      gap: 6px;
-
-      border: none;
-
-      background: transparent;
-
-      padding: 0;
-    }
-
-    .nim-satr {
-      width: 50%;
-      height: auto;
-    }
-
-    .satr {
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-around;
-
-      width: 100%;
-
-      min-height: 138px;
-
-      padding: 5px;
-
-      border-radius: 13px;
-
-      border: 1px dashed #c2d3e9;
-
-      background: rgba(255,255,255,0.45);
-    }
-
-    /* =========================================
-       خانه
-    ========================================= */
-
-    .beyt {
-      position: relative;
-
-      width: 55px;
-      min-width: 55px;
-
-      height: 130px;
-
-      margin: 4px auto;
-
-      padding: 0 3px;
-
-      border-radius: 11px;
 
       text-align: center;
 
-      overflow: hidden;
+      width: 82%;
+      max-width: 290px;
 
-      transition: all 0.3s ease;
-    }
+      margin: 0 auto 10px;
 
-    .show_border {
-      border: 1px solid #c9d8ea;
+      padding: 6px 10px;
 
-      background: rgba(255,255,255,0.82);
+      font-family: Arial, sans-serif;
+      font-size: 25px;
+      font-weight: bold;
+
+      letter-spacing: 3px;
+
+      color: #142a57;
+
+      background: rgba(255, 255, 255, 0.65);
+
+      border: none;
+      border-bottom: 3px solid #315f9f;
+
+      border-radius: 12px;
+
+      outline: none;
 
       box-shadow:
-        0 4px 10px rgba(36, 72, 110, 0.07);
+        inset 0 2px 5px rgba(0, 0, 0, 0.08),
+        0 3px 8px rgba(0, 0, 0, 0.08);
+
+      transition: 0.25s;
     }
 
-    .show_border:hover {
-      transform: translateY(-3px);
+    #vorodi:focus {
+      border-bottom-color: #0a55ae;
+      background: #ffffff;
 
       box-shadow:
-        0 7px 15px rgba(36, 72, 110, 0.11);
+        0 0 0 3px rgba(3, 83, 164, 0.15),
+        inset 0 2px 5px rgba(0, 0, 0, 0.05);
     }
 
-    /* =========================================
-       شماره خانه
-    ========================================= */
+    #vorodi::placeholder {
+      color: #65739a;
+      font-size: 19px;
+      letter-spacing: 1px;
+    }
 
-    .shomare_khane {
-      padding: 4px 0;
+    a {
+      color: #1a27e0;
+      text-decoration: none;
+    }
 
-      margin-bottom: 9px;
+    /* =========================
+       سازنده
+    ========================= */
 
-      border-radius: 7px;
+    .creator {
+      margin: 8px auto 6px !important;
+      font-size: 12px !important;
+      color: #34446f;
+    }
 
-      background: #e4edf9;
+    .creator a {
+      display: inline-block;
+      color: #123f8a;
+      font-weight: bold;
+      transition: 0.2s;
+    }
 
-      color: #527091;
+    .creator a:hover {
+      color: #001f5f;
+      transform: translateY(-1px);
+    }
 
-      font-family: vazir;
+    /* =========================
+       لینک کتابخانه
+    ========================= */
 
-      font-size: 10px;
+    .library-link {
+      width: 94%;
 
+      margin: 8px auto 2px;
+      padding: 8px 10px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 6px;
+      flex-wrap: wrap;
+
+      background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.72),
+        rgba(220,228,255,0.7)
+      );
+
+      border: 1px solid rgba(65, 102, 171, 0.55);
+      border-radius: 11px;
+
+      box-shadow:
+        0 3px 7px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255,255,255,0.7);
+
+      font-size: 12px;
+      color: #263b73;
+    }
+
+    .library-icon {
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .library-text {
       font-weight: bold;
     }
 
-    /* =========================================
-       نقطه و خط
-    ========================================= */
+    .library-link a {
+      display: inline-block;
 
+      padding: 4px 10px;
+
+      border-radius: 7px;
+
+      background: linear-gradient(
+        135deg,
+        #168de2,
+        #0562ae
+      );
+
+      color: white;
+
+      border: 1px solid #075493;
+
+      font-size: 11px;
+      font-weight: bold;
+
+      box-shadow:
+        0 3px 6px rgba(0, 65, 130, 0.25);
+
+      transition: all 0.2s ease;
+    }
+
+    .library-link a:hover {
+      transform: translateY(-1px);
+
+      box-shadow:
+        0 5px 9px rgba(0, 65, 130, 0.3);
+
+      background: linear-gradient(
+        135deg,
+        #1c9af2,
+        #075fa7
+      );
+    }
+
+    /* =========================
+       بخش زایچه
+    ========================= */
+
+    #boyot {
+      width: 100%;
+
+      margin-top: 8px;
+
+      background: linear-gradient(
+        145deg,
+        #c5d5ff,
+        #b6caf2
+      );
+
+      border: 2px solid #5578b9;
+      border-radius: 15px;
+
+      display: flex;
+      flex-direction: column;
+
+      padding: 6px 0;
+
+      box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.12),
+        inset 0 1px 2px rgba(255,255,255,0.45);
+    }
+
+    /* هر سطر */
+    .satr {
+      border: 2px dashed #4d83ca;
+
+      background: rgba(255,255,255,0.12);
+
+      border-radius: 9px;
+
+      margin: 3px auto;
+
+      width: 95%;
+      height: 19%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    #satr-1 {
+      margin: 3px auto;
+
+      width: 97%;
+      height: 19%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .nim-satr {
+      height: 96%;
+      width: 48%;
+    }
+
+    /* =========================
+       هر خانه
+    ========================= */
+
+    .beyt {
+      margin: 6px auto;
+
+      width: 50px;
+      height: 130px;
+
+      border-radius: 10px;
+
+      position: relative;
+
+      overflow: visible;
+    }
+
+    .show_border {
+      border: 1px solid #78a1d1;
+
+      background: rgba(255,255,255,0.12);
+
+      box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    /* شماره خانه */
+    .shomare_khane {
+      margin: 0;
+
+      padding: 2px 0;
+
+      background: linear-gradient(
+        180deg,
+        #88a9db,
+        #7194c9
+      );
+
+      color: #243d73;
+
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+
+      margin-bottom: 10px;
+
+      font-family: vazir;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    /* نقاط */
     .adad {
-      width: 7px;
-      height: 7px;
+      width: 8px;
+      height: 8px;
+
+      background-color: #111;
 
       margin: 5px auto;
 
       border-radius: 50%;
 
-      background: #17212d;
-
       box-shadow:
-        0 1px 2px rgba(0, 0, 0, 0.25);
+        0 1px 2px rgba(0,0,0,0.2);
     }
 
     .s1 {
       width: 25px;
-      height: 6px;
-
+      height: 8px;
       border-radius: 5px;
     }
 
     .red {
-      background-color: #e53935;
+      background-color: red;
     }
 
     .green {
-      background-color: #26a85b;
+      background-color: #00ff00;
     }
 
-    /* =========================================
-       اسم شکل
-       اصلاح شده برای جلوگیری از خروج متن
-    ========================================= */
+    /* =========================
+       نام شکل
+       این قسمت مشکل بیرون زدن
+       متن را برطرف می کند
+    ========================= */
 
     .nam {
-      width: 100%;
-
       margin-top: 4px;
 
-      padding: 0 2px;
+      width: 100%;
 
-      text-align: center;
-
-      overflow: hidden;
+      overflow: visible;
     }
 
     .nam p {
-      width: 100%;
-
-      margin: 0;
-      padding: 0;
-
-      color: #395675;
-
       font-family: vazir;
 
-      font-size: 8.5px;
-
+      font-size: 10px;
       font-weight: bold;
 
-      line-height: 1.6;
+      color: #26386e;
 
-      text-align: center;
+      margin: 4px auto 0;
+
+      width: 78px;
+      max-width: 78px;
 
       white-space: normal;
 
       overflow-wrap: break-word;
-
       word-break: normal;
 
-      max-width: 100%;
-    }
-
-    /* =========================================
-       فوتر
-    ========================================= */
-
-    .footer {
-      margin-top: 18px;
+      line-height: 1.4;
 
       text-align: center;
-
-      color: #a9c0dc;
-
-      font-size: 10px;
-
-      line-height: 1.9;
     }
 
-    .footer a {
-      color: #d7e9ff;
-
-      text-decoration: none;
-
-      font-weight: bold;
-    }
-
-    /* =========================================
-       انیمیشن
-    ========================================= */
-
-    .chart-animate {
-      animation: chartShow 0.45s ease;
-    }
-
-    @keyframes chartShow {
-
-      from {
-        opacity: 0;
-
-        transform: translateY(8px);
-      }
-
-      to {
-        opacity: 1;
-
-        transform: translateY(0);
-      }
-
-    }
-
-    /* =========================================
+    /* =========================
        موبایل
-    ========================================= */
+    ========================= */
 
-    @media (max-width: 650px) {
+    @media (max-width: 500px) {
 
-      .page {
-        padding: 12px 8px 25px;
+      body {
+        padding: 7px 0;
       }
 
-      .header {
-        padding: 20px 14px;
-
-        border-radius: 20px;
+      .asli {
+        width: 97%;
+        min-width: 0;
+        padding: 7px;
+        border-radius: 15px;
       }
 
-      .header h1 {
-        font-size: 22px;
+      #input {
+        padding: 12px 7px 10px;
       }
 
-      .header p {
-        font-size: 11px;
+      #input p {
+        font-size: 13px;
       }
 
-      .card,
-      .chart-card {
-        padding: 12px;
-
-        border-radius: 17px;
+      .hint {
+        font-size: 13px !important;
       }
 
       #vorodi {
-        height: 53px;
-
+        width: 86%;
         font-size: 22px;
-
-        letter-spacing: 3px;
       }
 
-      .library-card {
-        padding: 12px;
-
-        align-items: center;
-      }
-
-      .library-name {
-        font-size: 11px;
-      }
-
-      .library-description {
-        font-size: 9px;
-      }
-
-      .library-btn {
-        min-width: 68px;
-
-        padding: 0 8px;
-
+      .library-link {
+        width: 97%;
         font-size: 10px;
       }
 
-      .chart-row {
-        min-height: 130px;
-
-        padding: 5px;
-      }
-
-      .satr {
-        min-height: 123px;
-
-        padding: 3px;
+      .library-link a {
+        font-size: 10px;
+        padding: 3px 8px;
       }
 
       .beyt {
-        width: 47px;
-        min-width: 47px;
-
-        height: 120px;
-
-        padding: 0 2px;
+        width: 45px;
+        height: 125px;
       }
 
       .nam p {
-        font-size: 8px;
-
-        line-height: 1.55;
-      }
-
-      .shomare_khane {
+        width: 72px;
+        max-width: 72px;
         font-size: 9px;
-
-        margin-bottom: 7px;
       }
-
-      .adad {
-        width: 6px;
-        height: 6px;
-
-        margin: 4px auto;
-      }
-
-      .s1 {
-        width: 21px;
-        height: 5px;
-      }
-
     }
-
-    @media (max-width: 420px) {
-
-      .buttons {
-        flex-direction: column;
-      }
-
-      .library-card {
-        flex-direction: column;
-
-        text-align: center;
-      }
-
-      .library-info {
-        flex-direction: column;
-      }
-
-      .library-btn {
-        width: 100%;
-      }
-
-      #satr-1 {
-        gap: 3px;
-      }
-
-      .beyt {
-        width: 42px;
-        min-width: 42px;
-
-        height: 118px;
-      }
-
-      .chart-row {
-        gap: 2px;
-      }
-
-      .nam p {
-        font-size: 7.5px;
-      }
-
-    }
-
   </style>
 </head>
 
-
 <body>
 
-  <div class="page">
+  <div id="ashkal" class="asli">
 
-    <!-- =========================================
-         هدر
-    ========================================= -->
+    <!-- =========================
+         بخش ورودی
+    ========================== -->
 
-    <header class="header">
+    <div id="input" class="in-ashkal">
 
-      <div class="header-content">
+      <p class="hint">
+        به جای نقطه 0 و به جای خط 1 را وارد کنید
+      </p>
 
-        <div class="header-icon">
-          ☽
-        </div>
+      <input
+        type="text"
+        name=""
+        id="vorodi"
+        maxlength="16"
+        placeholder="...110101"
+      />
 
-        <h1>
-          محاسبه زایجه رمل
-        </h1>
+      <!-- سازنده -->
+      <p class="creator">
 
-        <p>
-          محاسبه و نمایش شانزده خانه زایچه رمل
-        </p>
-
-      </div>
-
-    </header>
-
-
-    <!-- =========================================
-         ورودی
-    ========================================= -->
-
-    <section class="card">
-
-      <div class="section-title">
-
-        <div class="section-icon">
-          ✦
-        </div>
-
-        <div>
-
-          <h2>
-            ورود اعداد زایچه
-          </h2>
-
-          <span>
-            ۱۶ رقم شامل ۰ و ۱ وارد کنید
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <div class="instruction">
-        به جای نقطه <strong>۰</strong> و به جای خط
-        <strong>۱</strong> را وارد کنید.
-        پس از وارد کردن ۱۶ رقم، روی «محاسبه زایجه» بزنید.
-      </div>
-
-
-      <div class="input-wrapper">
-
-        <input
-          type="text"
-          id="vorodi"
-          maxlength="16"
-          inputmode="numeric"
-          autocomplete="off"
-          placeholder="0000 0000 0000 0000"
-        >
-
-        <div class="input-status">
-
-          <span id="statusText">
-            منتظر ورود اطلاعات...
-          </span>
-
-          <span id="counter">
-            0 / 16
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <div class="buttons">
-
-        <button
-          type="button"
-          class="btn btn-primary"
-          id="calculateBtn"
-        >
-          ✨ محاسبه زایجه
-        </button>
-
-        <button
-          type="button"
-          class="btn btn-secondary"
-          id="clearBtn"
-        >
-          پاک کردن
-        </button>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================================
-         کتابخانه
-    ========================================= -->
-
-    <section class="card">
-
-      <div class="library-card">
-
-        <div class="library-info">
-
-          <div class="library-icon">
-            📚
-          </div>
-
-          <div>
-
-            <p class="library-name">
-              کتابخانه تخصصی علم رمل
-            </p>
-
-            <p class="library-description">
-              آرشیو کتاب‌های تخصصی علم رمل در تلگرام
-            </p>
-
-          </div>
-
-        </div>
-
+        <span>سازنده : mohsen0660@ (</span>
 
         <a
-          class="library-btn"
+          href="https://eitaa.com/mohsen0660"
+          target="_blank"
+        >
+          ایتا
+        </a>
+
+        <span> / </span>
+
+        <a
+          href="https://t.me/mohsen0660"
+          target="_blank"
+        >
+          تلگرام
+        </a>
+
+        <span>)</span>
+
+      </p>
+
+      <!-- کتابخانه -->
+      <div class="library-link">
+
+        <span class="library-icon">
+          📚
+        </span>
+
+        <span class="library-text">
+          کتابخانه تخصصی علم رمل در تلگرام
+        </span>
+
+        <a
           href="https://t.me/+on5KK8q4OLY5ZjQ0"
           target="_blank"
-          rel="noopener noreferrer"
         >
-          مشاهده کانال
+          مشاهده
         </a>
 
       </div>
 
-    </section>
+    </div>
 
 
-    <!-- =========================================
+    <!-- =========================
          زایچه
-    ========================================= -->
+    ========================== -->
 
-    <section class="chart-card">
+    <div id="boyot" class="in-ashkal">
 
-      <div class="chart-header">
+      <div id="satr-1">
 
-        <div class="chart-title">
-
-          <div class="chart-title-icon">
-            ◈
-          </div>
-
-          <div class="chart-title-text">
-
-            <strong>
-              زایچه رمل
-            </strong>
-
-            <span>
-              شانزده خانه
-            </span>
-
-          </div>
-
+        <div
+          class="satr nim-satr"
+          id="satr-1.1"
+        >
+          <div class="beyt" id="beyt-1"></div>
+          <div class="beyt" id="beyt-2"></div>
+          <div class="beyt" id="beyt-3"></div>
+          <div class="beyt" id="beyt-4"></div>
         </div>
 
-
-        <div class="chart-badge">
-          خانه ۱ تا ۱۶
+        <div
+          class="satr nim-satr"
+          id="satr-1.2"
+        >
+          <div class="beyt" id="beyt-5"></div>
+          <div class="beyt" id="beyt-6"></div>
+          <div class="beyt" id="beyt-7"></div>
+          <div class="beyt" id="beyt-8"></div>
         </div>
 
       </div>
 
 
-      <div id="boyot">
+      <div class="satr" id="satr-2">
 
-        <!-- خانه های 1 تا 8 -->
-
-        <div id="satr-1" class="chart-row">
-
-          <div class="satr nim-satr" id="satr-1.1">
-
-            <div class="beyt" id="beyt-1"></div>
-
-            <div class="beyt" id="beyt-2"></div>
-
-            <div class="beyt" id="beyt-3"></div>
-
-            <div class="beyt" id="beyt-4"></div>
-
-          </div>
-
-
-          <div class="satr nim-satr" id="satr-1.2">
-
-            <div class="beyt" id="beyt-5"></div>
-
-            <div class="beyt" id="beyt-6"></div>
-
-            <div class="beyt" id="beyt-7"></div>
-
-            <div class="beyt" id="beyt-8"></div>
-
-          </div>
-
-        </div>
-
-
-        <!-- خانه های 9 تا 12 -->
-
-        <div class="satr chart-row" id="satr-2">
-
-          <div class="beyt" id="beyt-9"></div>
-
-          <div class="beyt" id="beyt-10"></div>
-
-          <div class="beyt" id="beyt-11"></div>
-
-          <div class="beyt" id="beyt-12"></div>
-
-        </div>
-
-
-        <!-- خانه های 13 و 14 -->
-
-        <div class="satr chart-row" id="satr-3">
-
-          <div class="beyt" id="beyt-13"></div>
-
-          <div class="beyt" id="beyt-14"></div>
-
-        </div>
-
-
-        <!-- خانه 15 -->
-
-        <div class="satr chart-row" id="satr-4">
-
-          <div class="beyt" id="beyt-15"></div>
-
-        </div>
-
-
-        <!-- خانه 16 -->
-
-        <div class="satr chart-row" id="satr-5">
-
-          <div class="beyt" id="beyt-16"></div>
-
-        </div>
+        <div class="beyt" id="beyt-9"></div>
+        <div class="beyt" id="beyt-10"></div>
+        <div class="beyt" id="beyt-11"></div>
+        <div class="beyt" id="beyt-12"></div>
 
       </div>
 
-    </section>
+
+      <div class="satr" id="satr-3">
+
+        <div class="beyt" id="beyt-13"></div>
+        <div class="beyt" id="beyt-14"></div>
+
+      </div>
 
 
-    <!-- =========================================
-         فوتر
-    ========================================= -->
+      <div class="satr" id="satr-4">
 
-    <footer class="footer">
+        <div class="beyt" id="beyt-15"></div>
 
-      سازنده :
+      </div>
 
-      <a
-        href="https://eitaa.com/mohsen0660"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        ایتا
-      </a>
 
-      /
+      <div class="satr" id="satr-5">
 
-      <a
-        href="https://t.me/mohsen0660"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        تلگرام
-      </a>
+        <div class="beyt" id="beyt-16"></div>
 
-      <br>
+      </div>
 
-      محاسبه زایجه رمل
-
-    </footer>
+    </div>
 
   </div>
 
@@ -1342,119 +650,22 @@
     ===================================================== */
 
     let jadval_ashkal = [
-
-      {
-        id: 1,
-        shekl: "0111",
-        nam: "لحیان",
-        tozih: ""
-      },
-
-      {
-        id: 2,
-        shekl: "1010",
-        nam: "قبض الداخل",
-        tozih: ""
-      },
-
-      {
-        id: 3,
-        shekl: "0101",
-        nam: "قبض الخارج",
-        tozih: ""
-      },
-
-      {
-        id: 4,
-        shekl: "1111",
-        nam: "جماعت",
-        tozih: ""
-      },
-
-      {
-        id: 5,
-        shekl: "0010",
-        nam: "فراخ",
-        tozih: ""
-      },
-
-      {
-        id: 6,
-        shekl: "0110",
-        nam: "عقلة",
-        tozih: ""
-      },
-
-      {
-        id: 7,
-        shekl: "1110",
-        nam: "انگیس",
-        tozih: ""
-      },
-
-      {
-        id: 8,
-        shekl: "1011",
-        nam: "حمره",
-        tozih: ""
-      },
-
-      {
-        id: 9,
-        shekl: "1101",
-        nam: "بیاض",
-        tozih: ""
-      },
-
-      {
-        id: 10,
-        shekl: "0011",
-        nam: "نصرة الخارج",
-        tozih: ""
-      },
-
-      {
-        id: 11,
-        shekl: "1100",
-        nam: "نصرة الداخل",
-        tozih: ""
-      },
-
-      {
-        id: 12,
-        shekl: "0001",
-        nam: "عتبة الخارج",
-        tozih: ""
-      },
-
-      {
-        id: 13,
-        shekl: "0100",
-        nam: "نقی الخد",
-        tozih: ""
-      },
-
-      {
-        id: 14,
-        shekl: "1000",
-        nam: "عتبة الداخل",
-        tozih: ""
-      },
-
-      {
-        id: 15,
-        shekl: "1001",
-        nam: "اجتماع",
-        tozih: ""
-      },
-
-      {
-        id: 16,
-        shekl: "0000",
-        nam: "طریق",
-        tozih: ""
-      }
-
+      { id: 1, shekl: "0111", nam: "لحیان", tozih: "" },
+      { id: 2, shekl: "1010", nam: "قبض الداخل", tozih: "" },
+      { id: 3, shekl: "0101", nam: "قبض الخارج", tozih: "" },
+      { id: 4, shekl: "1111", nam: "جماعت", tozih: "" },
+      { id: 5, shekl: "0010", nam: "فراخ", tozih: "" },
+      { id: 6, shekl: "0110", nam: "عقلة", tozih: "" },
+      { id: 7, shekl: "1110", nam: "انگیس", tozih: "" },
+      { id: 8, shekl: "1011", nam: "حمره", tozih: "" },
+      { id: 9, shekl: "1101", nam: "بیاض", tozih: "" },
+      { id: 10, shekl: "0011", nam: "نصرة الخارج", tozih: "" },
+      { id: 11, shekl: "1100", nam: "نصرة الداخل", tozih: "" },
+      { id: 12, shekl: "0001", nam: "عتبة الخارج", tozih: "" },
+      { id: 13, shekl: "0100", nam: "نقی الخد", tozih: "" },
+      { id: 14, shekl: "1000", nam: "عتبة الداخل", tozih: "" },
+      { id: 15, shekl: "1001", nam: "اجتماع", tozih: "" },
+      { id: 16, shekl: "0000", nam: "طریق", tozih: "" },
     ];
 
 
@@ -1463,76 +674,44 @@
     let input_fild =
       $.getElementById("vorodi");
 
-    let calculateBtn =
-      $.getElementById("calculateBtn");
-
-    let clearBtn =
-      $.getElementById("clearBtn");
-
-    let statusText =
-      $.getElementById("statusText");
-
-    let counter =
-      $.getElementById("counter");
-
-    let boyot =
-      $.getElementById("boyot");
-
-
-    /* =====================================================
-       کنترل ورودی
-    ===================================================== */
 
     input_fild.addEventListener(
-      "input",
+      "keyup",
       function () {
 
-        let text =
-          input_fild.value;
+        var text = input_fild.value;
 
-        text =
-          text.replace(
-            /[^01]/g,
-            ""
-          );
 
-        if (text.length > 16) {
+        if (text.length == 16) {
 
-          text =
-            text.slice(0, 16);
+          input_fild.style.backgroundColor =
+            "rgb(158 243 158)";
 
-        }
 
-        input_fild.value =
-          text;
+          // محاسبه
+          let abvab = hesab(text);
 
-        counter.textContent =
-          text.length + " / 16";
+          // رسم اشکال
+          data_print(abvab);
 
-        input_fild.classList.remove(
-          "valid"
-        );
+        } else {
 
-        if (text.length === 0) {
-
-          statusText.textContent =
-            "منتظر ورود اطلاعات...";
+          input_fild.style.backgroundColor = "";
 
         }
-        else if (text.length < 16) {
 
-          statusText.textContent =
-            "هنوز کامل نشده است";
 
-        }
-        else {
+        for (i in text) {
 
-          statusText.textContent =
-            "ورودی کامل است ✓";
+          if (
+            !(text[i] == "0" ||
+              text[i] == "1")
+          ) {
 
-          input_fild.classList.add(
-            "valid"
-          );
+            input_fild.value =
+              text.slice(0, i);
+
+          }
 
         }
 
@@ -1541,140 +720,11 @@
 
 
     /* =====================================================
-       محاسبه با Enter
-    ===================================================== */
-
-    input_fild.addEventListener(
-      "keydown",
-      function (event) {
-
-        if (event.key === "Enter") {
-
-          calculate();
-
-        }
-
-      }
-    );
-
-
-    /* =====================================================
-       دکمه محاسبه
-    ===================================================== */
-
-    calculateBtn.addEventListener(
-      "click",
-      calculate
-    );
-
-
-    function calculate() {
-
-      let text =
-        input_fild.value;
-
-      if (text.length !== 16) {
-
-        statusText.textContent =
-          "لطفاً دقیقاً ۱۶ رقم وارد کنید";
-
-        input_fild.focus();
-
-        return;
-
-      }
-
-      input_fild.classList.add(
-        "valid"
-      );
-
-      statusText.textContent =
-        "زایچه محاسبه شد ✓";
-
-
-      /* ================================================
-         محاسبه اصلی
-         بدون تغییر
-      ================================================= */
-
-      let abvab =
-        hesab(text);
-
-      data_print(abvab);
-
-
-      boyot.classList.remove(
-        "chart-animate"
-      );
-
-      void boyot.offsetWidth;
-
-      boyot.classList.add(
-        "chart-animate"
-      );
-
-    }
-
-
-    /* =====================================================
-       پاک کردن
-    ===================================================== */
-
-    clearBtn.addEventListener(
-      "click",
-      function () {
-
-        input_fild.value = "";
-
-        input_fild.classList.remove(
-          "valid"
-        );
-
-        counter.textContent =
-          "0 / 16";
-
-        statusText.textContent =
-          "منتظر ورود اطلاعات...";
-
-
-        for (
-          let i = 1;
-          i <= 16;
-          i++
-        ) {
-
-          let beyt =
-            $.getElementById(
-              "beyt-" + i
-            );
-
-          beyt.removeAttribute(
-            "class"
-          );
-
-          beyt.classList.add(
-            "beyt"
-          );
-
-          beyt.innerHTML = "";
-
-        }
-
-        input_fild.focus();
-
-      }
-    );
-
-
-    /* =====================================================
-       تابع ضرب
+       ضرب
        بدون تغییر
     ===================================================== */
 
-    function zarb(
-      by1,
-      by2
-    ) {
+    function zarb(by1, by2) {
 
       by3 = "";
 
@@ -1685,35 +735,28 @@
       ) {
 
         by3 += String(
-
           Math.abs(
-
             (
-              (
-                +by1[i] +
-                +by2[i]
-              ) * 2 - 2
+              (+by1[i] +
+                +by2[i]) *
+                2 -
+                2
             ) / 2
-
           )
-
         );
 
       }
 
       return by3;
-
     }
 
 
     /* =====================================================
-       تابع حساب
+       فانکشن حساب
        بدون تغییر
     ===================================================== */
 
-    function hesab(
-      text
-    ) {
+    function hesab(text) {
 
       var lst = [
 
@@ -1728,23 +771,21 @@
       ];
 
 
-      /* ساخت بنات */
+      // ساخت بنات
 
       for (i in lst) {
 
         lst.push(
-
           lst[0][i] +
           lst[1][i] +
           lst[2][i] +
           lst[3][i]
-
         );
 
       }
 
 
-      /* ساخت متولدات */
+      // ساخت خانه های 9 تا 12
 
       for (
         let i = 0;
@@ -1753,18 +794,16 @@
       ) {
 
         lst.push(
-
           zarb(
             lst[i],
             lst[i + 1]
           )
-
         );
 
       }
 
 
-      /* ساخت خانه های 13 تا 15 */
+      // ساخت خانه های 13 تا 15
 
       for (
         let i = 8;
@@ -1773,26 +812,22 @@
       ) {
 
         lst.push(
-
           zarb(
             lst[i],
             lst[i + 1]
           )
-
         );
 
       }
 
 
-      /* ساخت خانه 16 */
+      // ساخت خانه 16
 
       lst.push(
-
         zarb(
           lst[14],
           lst[0]
         )
-
       );
 
 
@@ -1805,12 +840,10 @@
 
     /* =====================================================
        رسم زایچه
-       منطق همان قبلی
+       بدون تغییر در منطق
     ===================================================== */
 
-    function data_print(
-      abvab
-    ) {
+    function data_print(abvab) {
 
       for (
         let i = 1;
@@ -1825,9 +858,7 @@
 
 
         this["beyt_" + i]
-          .removeAttribute(
-            "class"
-          );
+          .removeAttribute("class");
 
 
         this["beyt_" + i]
@@ -1837,80 +868,71 @@
           );
 
 
-        this["beyt_" + i]
-          .innerText =
+        this["beyt_" + i].innerText =
           "";
 
 
-        /* شماره خانه */
+        // شماره خانه
 
         this["beyt_" + i]
           .insertAdjacentHTML(
-
             "afterbegin",
 
             '<div class="shomare_khane">' +
               i +
-            "</div>"
-
+              "</div>"
           );
 
 
-        /* گرفتن شکل */
+        // شکل
 
         var bab =
           abvab[i - 1];
 
 
-        /* ساخت نقطه و خط */
+        // نقطه و خط
 
         for (s in bab) {
 
           this["beyt_" + i]
             .insertAdjacentHTML(
-
               "beforeend",
 
               '<div class="adad s' +
                 bab[s] +
-              '"></div>'
-
+                '"></div>'
             );
 
         }
 
 
-        /* پیدا کردن نام شکل */
+        // نام شکل
 
         var natije =
           jadval_ashkal.find(
             function (item) {
 
               return (
-                item["shekl"] ==
-                bab
+                item["shekl"] == bab
               );
 
             }
           );
 
 
-        /* نمایش نام */
-
         this["beyt_" + i]
           .insertAdjacentHTML(
 
             "beforeend",
 
-            '<div class="nam">' +
-              '<p>' +
-                natije.nam +
-              '</p>' +
-            '</div>'
+            '<div class="nam"><p>' +
+              natije.nam +
+              "</p></div>"
 
           );
 
       }
+
 
       console.log();
 
@@ -1919,5 +941,4 @@
   </script>
 
 </body>
-
 </html>
