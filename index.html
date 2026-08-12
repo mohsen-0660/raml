@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>محاسبه زایجه رمل</title>
 
@@ -18,180 +18,190 @@
 
     body {
       margin: 0;
-      padding: 7px 0;
-      background-color: #002855;
+      padding: 12px 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #001f3f, #003b73);
       direction: rtl;
       display: flex;
       justify-content: center;
       font-family: vazir, sans-serif;
     }
 
-    /* =========================
-       بخش اصلی
-    ========================= */
-
+    /* قاب اصلی */
     .asli {
-      text-align: center;
-
-      margin: auto 20px;
-      margin-top: 7px;
-
-      padding: 1%;
-
-      border-radius: 10px;
-
       width: 95%;
-      max-width: 500px;
+      max-width: 520px;
       min-width: 350px;
 
-      height: 100%;
+      padding: 10px;
 
-      background-color: #6e8cc7;
+      background: linear-gradient(
+        145deg,
+        #7895d0,
+        #6685c5
+      );
 
-      display: flex;
-      flex-direction: column;
-
-      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.22);
-    }
-
-    /* =========================
-       بخش های داخلی
-    ========================= */
-
-    .in-ashkal {
-      width: 95%;
-      margin: auto;
-    }
-
-    /* =========================
-       بخش ورودی
-    ========================= */
-
-    #input {
-      min-height: 175px;
-
-      background-color: #b8c0ff;
-
-      border: 3px dashed #0353a4;
-
-      border-radius: 10px;
-
-      padding: 5px 0;
-
-      position: relative;
-
-      overflow: visible;
+      border-radius: 18px;
 
       box-shadow:
-        0 3px 8px rgba(0, 0, 0, 0.12);
+        0 10px 30px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+      text-align: center;
+    }
+
+    /* -------------------------
+       بخش ورودی
+    ------------------------- */
+
+    #input {
+      width: 100%;
+
+      background: linear-gradient(
+        145deg,
+        #c8ceff,
+        #b5bdf0
+      );
+
+      border: 2px solid #5578b9;
+
+      border-radius: 15px;
+
+      padding: 14px 10px 12px;
+
+      box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.12),
+        inset 0 1px 2px rgba(255, 255, 255, 0.4);
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* خط تزئینی بالای پنل */
+    #input::before {
+      content: "";
+      position: absolute;
+
+      top: 0;
+      right: 0;
+      left: 0;
+
+      height: 4px;
+
+      background: linear-gradient(
+        90deg,
+        #0353a4,
+        #3f7ed9,
+        #0353a4
+      );
     }
 
     #input p {
-      font-family: "vazir";
-      font-size: 17px;
+      font-family: vazir;
+      font-size: 15px;
       font-weight: bold;
 
-      margin: 12px auto;
-
       color: #26386e;
+
+      margin: 7px auto;
     }
 
-    /* =========================
-       فیلد ورودی
-    ========================= */
+    /* متن راهنما */
+    .hint {
+      font-size: 15px !important;
+      margin-bottom: 10px !important;
+    }
 
+    /* ورودی */
     #vorodi {
       display: block;
 
       text-align: center;
 
-      width: 80%;
-      max-width: 280px;
+      width: 82%;
+      max-width: 290px;
 
-      margin: 0 auto;
+      margin: 0 auto 10px;
 
-      padding: 2px 8px;
+      padding: 6px 10px;
 
-      font-size: 25px;
       font-family: Arial, sans-serif;
+      font-size: 25px;
       font-weight: bold;
 
-      letter-spacing: 2px;
+      letter-spacing: 3px;
 
       color: #142a57;
 
-      border-style: none;
+      background: rgba(255, 255, 255, 0.65);
 
-      border-radius: 10px;
+      border: none;
+      border-bottom: 3px solid #315f9f;
 
-      background-color: #cbd1ff;
-
-      border-bottom: 2px solid #0353a4;
+      border-radius: 12px;
 
       outline: none;
 
-      transition: 0.2s;
+      box-shadow:
+        inset 0 2px 5px rgba(0, 0, 0, 0.08),
+        0 3px 8px rgba(0, 0, 0, 0.08);
+
+      transition: 0.25s;
     }
 
     #vorodi:focus {
-      background-color: #ffffff;
+      border-bottom-color: #0a55ae;
+
+      background: #ffffff;
 
       box-shadow:
-        0 0 0 3px rgba(3, 83, 164, 0.15);
+        0 0 0 3px rgba(3, 83, 164, 0.15),
+        inset 0 2px 5px rgba(0, 0, 0, 0.05);
     }
 
     #vorodi::placeholder {
-      color: #66739b;
-      font-size: 18px;
+      color: #65739a;
+      font-size: 19px;
+      letter-spacing: 1px;
     }
 
-    a {
-      color: #1a27e0;
-      text-decoration: none;
-    }
-
-    /* =========================
+    /* -------------------------
        سازنده
-    ========================= */
+    ------------------------- */
 
     .creator {
-      font-size: 13px !important;
+      margin: 8px auto 6px !important;
 
-      margin: 9px auto 5px !important;
+      font-size: 12px !important;
 
-      color: #394a79;
+      color: #34446f;
     }
 
     .creator a {
+      display: inline-block;
+
+      color: #123f8a;
+
       font-weight: bold;
 
       transition: 0.2s;
     }
 
     .creator a:hover {
-      color: #002b80;
+      color: #001f5f;
+      transform: translateY(-1px);
     }
 
-    /* =========================
-       لینک کتابخانه
-    ========================= */
+    /* -------------------------
+       کتابخانه
+    ------------------------- */
 
     .library-link {
-      width: 91%;
+      width: 94%;
 
-      margin: 6px auto 3px;
+      margin: 8px auto 2px;
 
-      padding: 6px 8px;
-
-      background: linear-gradient(
-        135deg,
-        #e2e8ff,
-        #cbd7ff
-      );
-
-      border: 1px solid #7b98ce;
-
-      border-radius: 9px;
+      padding: 8px 10px;
 
       display: flex;
 
@@ -199,103 +209,120 @@
 
       justify-content: center;
 
-      gap: 5px;
+      gap: 6px;
 
       flex-wrap: wrap;
 
-      font-family: vazir;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0.72),
+          rgba(220,228,255,0.7)
+        );
 
-      font-size: 11px;
+      border: 1px solid rgba(65, 102, 171, 0.55);
 
-      font-weight: bold;
-
-      color: #263b73;
+      border-radius: 11px;
 
       box-shadow:
-        0 2px 5px rgba(0, 0, 0, 0.12);
+        0 3px 7px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255,255,255,0.7);
+
+      font-size: 12px;
+
+      color: #263b73;
     }
 
     .library-icon {
-      font-size: 16px;
+      font-size: 17px;
       line-height: 1;
     }
 
     .library-text {
-      color: #263b73;
+      font-weight: bold;
     }
 
     .library-link a {
       display: inline-block;
 
-      padding: 3px 9px;
+      padding: 4px 10px;
 
-      border-radius: 6px;
+      border-radius: 7px;
 
       background: linear-gradient(
         135deg,
         #168de2,
-        #0862ac
+        #0562ae
       );
 
-      color: #ffffff;
+      color: white;
 
       border: 1px solid #075493;
 
-      font-size: 10px;
+      font-size: 11px;
 
       font-weight: bold;
 
       box-shadow:
-        0 2px 5px rgba(0, 70, 140, 0.25);
+        0 3px 6px rgba(0, 65, 130, 0.25);
 
-      transition: 0.2s;
+      transition: all 0.2s ease;
     }
 
     .library-link a:hover {
+      transform: translateY(-1px);
+
+      box-shadow:
+        0 5px 9px rgba(0, 65, 130, 0.3);
+
       background: linear-gradient(
         135deg,
-        #21a0ef,
-        #075b9f
+        #1c9af2,
+        #075fa7
       );
-
-      transform: translateY(-1px);
     }
 
-    /* =========================
-       بخش پایین - اشکال
-    ========================= */
+    /* -------------------------
+       بخش زایچه
+    ------------------------- */
 
     #boyot {
-      margin-top: 5px;
+      width: 100%;
 
-      background-color: #bbd0ff;
+      margin-top: 8px;
 
-      height: 85%;
+      background: linear-gradient(
+        145deg,
+        #c5d5ff,
+        #b6caf2
+      );
 
-      border: 3px dashed #0353a4;
+      border: 2px solid #5578b9;
 
-      border-radius: 10px;
+      border-radius: 15px;
 
       display: flex;
 
       flex-direction: column;
 
-      padding: 4px 0;
+      padding: 6px 0;
+
+      box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.12),
+        inset 0 1px 2px rgba(255,255,255,0.45);
     }
 
-    /* =========================
-       هر سطر
-    ========================= */
-
+    /* هر سطر */
     .satr {
-      border: 2px dashed #0466c8;
+      border: 2px dashed #4d83ca;
 
-      border-radius: 5px;
+      background: rgba(255,255,255,0.12);
 
-      margin: 2px auto;
+      border-radius: 9px;
+
+      margin: 3px auto;
 
       width: 95%;
-
       height: 19%;
 
       display: flex;
@@ -306,10 +333,9 @@
     }
 
     #satr-1 {
-      margin: 2px auto;
+      margin: 3px auto;
 
       width: 97%;
-
       height: 19%;
 
       display: flex;
@@ -324,81 +350,64 @@
       width: 48%;
     }
 
-    /* =========================
-       هر بیت
-    ========================= */
-
+    /* هر خانه */
     .beyt {
       margin: 6px auto;
 
       width: 50px;
-
       height: 120px;
 
       border-radius: 10px;
 
-      position: relative;
-
-      overflow: visible;
-
-      flex-shrink: 0;
+      transition: 0.2s;
     }
 
     .show_border {
       border: 1px solid #78a1d1;
 
-      background-color: rgba(255, 255, 255, 0.08);
+      background: rgba(255,255,255,0.12);
 
       box-shadow:
         0 2px 4px rgba(0, 0, 0, 0.05);
     }
 
-    /* =========================
-       شماره خانه
-    ========================= */
-
+    /* شماره خانه */
     .shomare_khane {
-      width: 100%;
-
-      height: 22px;
-
-      margin: 0 0 8px 0;
+      margin: 0;
 
       padding: 2px 0;
 
-      background-color: #78a1d1;
+      background: linear-gradient(
+        180deg,
+        #88a9db,
+        #7194c9
+      );
 
-      color: #29467e;
+      color: #243d73;
 
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
 
+      margin-bottom: 10px;
+
       font-family: vazir;
-
       font-size: 13px;
-
       font-weight: bold;
-
-      text-align: center;
-
-      line-height: 18px;
     }
 
-    /* =========================
-       نقطه و خط
-    ========================= */
-
+    /* نقاط */
     .adad {
       width: 8px;
       height: 8px;
 
-      background-color: black;
+      background-color: #111;
 
-      margin: 4px auto;
+      margin: 5px auto;
 
       border-radius: 50%;
 
-      flex-shrink: 0;
+      box-shadow:
+        0 1px 2px rgba(0,0,0,0.2);
     }
 
     .s1 {
@@ -416,135 +425,83 @@
       background-color: #00ff00;
     }
 
-    /* =========================
-       نام شکل
-       داخل قسمت پایین خانه
-    ========================= */
-
+    /* نام شکل */
     .nam {
-      position: absolute;
-
-      left: 50%;
-
-      bottom: 2px;
-
-      transform: translateX(-50%);
-
-      width: 78px;
-
-      text-align: center;
-
-      margin: 0;
-
-      padding: 0;
+      margin-top: 5px;
     }
 
     .nam p {
       font-family: vazir;
 
-      font-size: 9px;
+      font-size: 12px;
 
-      font-weight: bold;
+      font-weight: bolder;
 
       color: #26386e;
 
-      width: 78px;
+      margin-top: 4px;
 
-      max-width: 78px;
-
-      margin: 0 auto;
-
-      padding: 0;
-
-      line-height: 1.35;
-
-      text-align: center;
-
-      white-space: normal;
-
-      overflow-wrap: break-word;
-
-      word-break: normal;
+      white-space: nowrap;
     }
 
-    /* =========================
+    /* -------------------------
        موبایل
-    ========================= */
+    ------------------------- */
 
     @media (max-width: 500px) {
 
       body {
-        padding: 5px 0;
+        padding: 7px 0;
       }
 
       .asli {
         width: 97%;
-
         min-width: 0;
 
         padding: 7px;
 
-        border-radius: 12px;
+        border-radius: 15px;
       }
 
       #input {
-        padding: 10px 6px;
-
-        min-height: 170px;
+        padding: 12px 7px 10px;
       }
 
       #input p {
         font-size: 13px;
       }
 
-      .creator {
-        font-size: 11px !important;
-      }
-
-      .library-link {
-        width: 97%;
-
-        font-size: 10px;
-
-        padding: 5px;
-      }
-
-      .library-link a {
-        font-size: 9px;
-
-        padding: 3px 8px;
+      .hint {
+        font-size: 13px !important;
       }
 
       #vorodi {
         width: 86%;
-
         font-size: 22px;
+      }
+
+      .library-link {
+        width: 97%;
+        font-size: 10px;
+      }
+
+      .library-link a {
+        font-size: 10px;
+        padding: 3px 8px;
       }
 
       .beyt {
         width: 45px;
-
-        height: 120px;
-      }
-
-      .shomare_khane {
-        font-size: 12px;
-      }
-
-      .nam {
-        width: 72px;
+        height: 115px;
       }
 
       .nam p {
-        width: 72px;
-
-        max-width: 72px;
-
-        font-size: 8px;
+        font-size: 10px;
       }
     }
   </style>
 </head>
+
 
 <body>
 
@@ -552,13 +509,14 @@
 
     <!-- =========================
          بخش ورودی
-    ========================= -->
+    ========================== -->
 
     <div id="input" class="in-ashkal">
 
-      <p>
+      <p class="hint">
         به جای نقطه 0 و به جای خط 1 را وارد کنید
       </p>
+
 
       <input
         type="text"
@@ -568,13 +526,12 @@
         placeholder="...110101"
       />
 
+
       <!-- سازنده -->
 
       <p class="creator">
 
-        <span>
-          سازنده : mohsen0660@ (
-        </span>
+        <span>سازنده : mohsen0660@ (</span>
 
         <a
           href="https://eitaa.com/mohsen0660"
@@ -583,7 +540,7 @@
           ایتا
         </a>
 
-        <span>/</span>
+        <span> / </span>
 
         <a
           href="https://t.me/mohsen0660"
@@ -592,13 +549,12 @@
           تلگرام
         </a>
 
-        <span>
-          )
-        </span>
+        <span>)</span>
 
       </p>
 
-      <!-- کتابخانه تخصصی علم رمل -->
+
+      <!-- کتابخانه -->
 
       <div class="library-link">
 
@@ -623,42 +579,29 @@
 
 
     <!-- =========================
-         بخش زایچه
-    ========================= -->
+         زایچه
+    ========================== -->
 
     <div id="boyot" class="in-ashkal">
 
-      <!-- سطر اول -->
 
-      <div class="" id="satr-1">
+      <div id="satr-1">
 
-        <div
-          class="satr nim-satr"
-          id="satr-1.1"
-        >
+        <div class="satr nim-satr" id="satr-1.1">
 
           <div class="beyt" id="beyt-1"></div>
-
           <div class="beyt" id="beyt-2"></div>
-
           <div class="beyt" id="beyt-3"></div>
-
           <div class="beyt" id="beyt-4"></div>
 
         </div>
 
 
-        <div
-          class="satr nim-satr"
-          id="satr-1.2"
-        >
+        <div class="satr nim-satr" id="satr-1.2">
 
           <div class="beyt" id="beyt-5"></div>
-
           <div class="beyt" id="beyt-6"></div>
-
           <div class="beyt" id="beyt-7"></div>
-
           <div class="beyt" id="beyt-8"></div>
 
         </div>
@@ -666,33 +609,23 @@
       </div>
 
 
-      <!-- سطر دوم -->
-
       <div class="satr" id="satr-2">
 
         <div class="beyt" id="beyt-9"></div>
-
         <div class="beyt" id="beyt-10"></div>
-
         <div class="beyt" id="beyt-11"></div>
-
         <div class="beyt" id="beyt-12"></div>
 
       </div>
 
 
-      <!-- سطر سوم -->
-
       <div class="satr" id="satr-3">
 
         <div class="beyt" id="beyt-13"></div>
-
         <div class="beyt" id="beyt-14"></div>
 
       </div>
 
-
-      <!-- سطر چهارم -->
 
       <div class="satr" id="satr-4">
 
@@ -700,8 +633,6 @@
 
       </div>
 
-
-      <!-- سطر پنجم -->
 
       <div class="satr" id="satr-5">
 
@@ -716,137 +647,36 @@
 
   <script>
 
-    // =====================================================
-    // جدول اشکال
-    // =====================================================
+    /* =====================================================
+       جدول اشکال
+       بدون هیچ تغییری در منطق اصلی
+    ===================================================== */
 
     let jadval_ashkal = [
-
-      {
-        id: 1,
-        shekl: "0111",
-        nam: "لحیان",
-        tozih: ""
-      },
-
-      {
-        id: 2,
-        shekl: "1010",
-        nam: "قبض الداخل",
-        tozih: ""
-      },
-
-      {
-        id: 3,
-        shekl: "0101",
-        nam: "قبض الخارج",
-        tozih: ""
-      },
-
-      {
-        id: 4,
-        shekl: "1111",
-        nam: "جماعت",
-        tozih: ""
-      },
-
-      {
-        id: 5,
-        shekl: "0010",
-        nam: "فراخ",
-        tozih: ""
-      },
-
-      {
-        id: 6,
-        shekl: "0110",
-        nam: "عقلة",
-        tozih: ""
-      },
-
-      {
-        id: 7,
-        shekl: "1110",
-        nam: "انگیس",
-        tozih: ""
-      },
-
-      {
-        id: 8,
-        shekl: "1011",
-        nam: "حمره",
-        tozih: ""
-      },
-
-      {
-        id: 9,
-        shekl: "1101",
-        nam: "بیاض",
-        tozih: ""
-      },
-
-      {
-        id: 10,
-        shekl: "0011",
-        nam: "نصرة الخارج",
-        tozih: ""
-      },
-
-      {
-        id: 11,
-        shekl: "1100",
-        nam: "نصرة الداخل",
-        tozih: ""
-      },
-
-      {
-        id: 12,
-        shekl: "0001",
-        nam: "عتبة الخارج",
-        tozih: ""
-      },
-
-      {
-        id: 13,
-        shekl: "0100",
-        nam: "نقی الخد",
-        tozih: ""
-      },
-
-      {
-        id: 14,
-        shekl: "1000",
-        nam: "عتبة الداخل",
-        tozih: ""
-      },
-
-      {
-        id: 15,
-        shekl: "1001",
-        nam: "اجتماع",
-        tozih: ""
-      },
-
-      {
-        id: 16,
-        shekl: "0000",
-        nam: "طریق",
-        tozih: ""
-      }
-
+      { id: 1, shekl: "0111", nam: "لحیان", tozih: "" },
+      { id: 2, shekl: "1010", nam: "قبض الداخل", tozih: "" },
+      { id: 3, shekl: "0101", nam: "قبض الخارج", tozih: "" },
+      { id: 4, shekl: "1111", nam: "جماعت", tozih: "" },
+      { id: 5, shekl: "0010", nam: "فراخ", tozih: "" },
+      { id: 6, shekl: "0110", nam: "عقلة", tozih: "" },
+      { id: 7, shekl: "1110", nam: "انگیس", tozih: "" },
+      { id: 8, shekl: "1011", nam: "حمره", tozih: "" },
+      { id: 9, shekl: "1101", nam: "بیاض", tozih: "" },
+      { id: 10, shekl: "0011", nam: "نصرة الخارج", tozih: "" },
+      { id: 11, shekl: "1100", nam: "نصرة الداخل", tozih: "" },
+      { id: 12, shekl: "0001", nam: "عتبة الخارج", tozih: "" },
+      { id: 13, shekl: "0100", nam: "نقی الخد", tozih: "" },
+      { id: 14, shekl: "1000", nam: "عتبة الداخل", tozih: "" },
+      { id: 15, shekl: "1001", nam: "اجتماع", tozih: "" },
+      { id: 16, shekl: "0000", nam: "طریق", tozih: "" },
     ];
 
 
     let $ = document;
 
-
     let input_fild =
       $.getElementById("vorodi");
 
-
-    // =====================================================
-    // دریافت ورودی
-    // =====================================================
 
     input_fild.addEventListener(
       "keyup",
@@ -861,17 +691,10 @@
             "rgb(158 243 158)";
 
 
-          // ریختن نتیجه حساب اعداد در لیست
-
           let abvab = hesab(text);
-
-
-          // فرستادن لیست برای ساخت اشکال
 
           data_print(abvab);
 
-          // انجام روش سیر نقطه
-          // seyr_noghte(abvab)
 
         } else {
 
@@ -883,10 +706,8 @@
         for (i in text) {
 
           if (
-            !(
-              text[i] == "0" ||
-              text[i] == "1"
-            )
+            !(text[i] == "0" ||
+              text[i] == "1")
           ) {
 
             input_fild.value =
@@ -900,10 +721,10 @@
     );
 
 
-    // =====================================================
-    // ضرب برای ساخت خانه های 9 تا 16
-    // بدون تغییر
-    // =====================================================
+    /* =====================================================
+       ضرب برای ساخت خانه های 9 تا 16
+       بدون تغییر
+    ===================================================== */
 
     function zarb(by1, by2) {
 
@@ -918,7 +739,10 @@
         by3 += String(
           Math.abs(
             (
-              (+by1[i] + +by2[i]) * 2 - 2
+              (+by1[i] +
+                +by2[i]) *
+                2 -
+                2
             ) / 2
           )
         );
@@ -929,14 +753,12 @@
     }
 
 
-    // =====================================================
-    // فانکشن حساب
-    // بدون تغییر در روش محاسبه
-    // =====================================================
+    /* =====================================================
+       فانکشن حساب
+       بدون تغییر در روش محاسبه
+    ===================================================== */
 
     function hesab(text) {
-
-      // ساخت امهات یعنی 1 تا 4
 
       var lst = [
 
@@ -946,12 +768,10 @@
 
         text.slice(8, 12),
 
-        text.slice(12, 16)
+        text.slice(12, 16),
 
       ];
 
-
-      // ساخت بنات یعنی 5 تا 8
 
       for (i in lst) {
 
@@ -964,8 +784,6 @@
 
       }
 
-
-      // ساخت متولدات یعنی 9 تا 12
 
       for (
         let i = 0;
@@ -983,8 +801,6 @@
       }
 
 
-      // ساخت خانه های 13 تا 15
-
       for (
         let i = 8;
         i != 14;
@@ -1001,8 +817,6 @@
       }
 
 
-      // ساخت خانه 16
-
       lst.push(
         zarb(
           lst[14],
@@ -1013,15 +827,15 @@
 
       console.log(lst);
 
-
       return lst;
 
     }
 
 
-    // =====================================================
-    // رسم زایچه
-    // =====================================================
+    /* =====================================================
+       رسم زایچه
+       بدون تغییر
+    ===================================================== */
 
     function data_print(abvab) {
 
@@ -1031,21 +845,15 @@
         i++
       ) {
 
-        // تعریف متغیر برای هر یک از المنت های بیت
-
         this["beyt_" + i] =
           $.getElementById(
             "beyt-" + i
           );
 
 
-        // حذف کلاس ها
-
         this["beyt_" + i]
           .removeAttribute("class");
 
-
-        // افزودن دوباره کلاس ها
 
         this["beyt_" + i]
           .classList.add(
@@ -1054,13 +862,9 @@
           );
 
 
-        // خالی کردن هر خانه
-
         this["beyt_" + i].innerText =
           "";
 
-
-        // نوشتن شماره خانه
 
         this["beyt_" + i]
           .insertAdjacentHTML(
@@ -1068,17 +872,13 @@
 
             '<div class="shomare_khane">' +
               i +
-            "</div>"
+              "</div>"
           );
 
-
-        // گرفتن شکل از لیست
 
         var bab =
           abvab[i - 1];
 
-
-        // ساخت نقطه و خط بر اساس شکل
 
         for (s in bab) {
 
@@ -1088,13 +888,11 @@
 
               '<div class="adad s' +
                 bab[s] +
-              '"></div>'
+                '"></div>'
             );
 
         }
 
-
-        // پیدا کردن نام شکل
 
         var natije =
           jadval_ashkal.find(
@@ -1108,17 +906,15 @@
           );
 
 
-        // نوشتن نام شکل
-
         this["beyt_" + i]
           .insertAdjacentHTML(
+
             "beforeend",
 
-            '<div class="nam">' +
-              '<p>' +
-                natije.nam +
-              "</p>" +
-            "</div>"
+            '<div class="nam"><p>' +
+              natije.nam +
+              "</p></div>"
+
           );
 
       }
